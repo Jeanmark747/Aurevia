@@ -1,111 +1,569 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#eaf6ff">
-<title>AUREVIA | Grow with Confidence</title>
+<title>AUREVIA | Grow With Confidence</title>
+
 <style>
-:root{--blue:#2388d8;--deep:#123b61;--sky:#eaf6ff;--ink:#18324a;--muted:#6b8297;--white:#fff;--line:#dcebf6;--shadow:0 12px 32px rgba(26,93,145,.10)}
-*{box-sizing:border-box}body{margin:0;background:#f4faff;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-button{font:inherit;cursor:pointer}.app{max-width:1120px;margin:auto;padding:22px 18px 90px}
-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}
-.brand{display:flex;align-items:center;gap:11px}.logo{width:44px;height:44px;border-radius:15px;background:linear-gradient(145deg,#43b5f4,#176bb7);display:grid;place-items:center;color:white;font-weight:900;font-size:23px;box-shadow:0 7px 18px #2388d844}.brand strong{display:block;font-size:20px;letter-spacing:2px;color:var(--deep)}.brand small{color:var(--muted)}
-.pill{background:#e0f2ff;color:#176db1;border:1px solid #c8e6fb;border-radius:30px;padding:8px 12px;font-size:12px;font-weight:700}
-.hero{background:linear-gradient(120deg,#155b94,#299de0);color:white;border-radius:26px;padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;width:230px;height:230px;border:35px solid #ffffff18;border-radius:50%;right:-60px;top:-100px}
-.hero small{opacity:.85;font-weight:700;letter-spacing:1.3px}.hero h1{font-size:clamp(27px,5vw,42px);line-height:1.12;margin:12px 0}.hero p{max-width:560px;color:#e4f4ff;line-height:1.6;margin:0 0 20px}
-.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:13px;padding:12px 17px;font-weight:800;background:white;color:#176bb1}.btn.secondary{background:#ffffff20;color:white;border:1px solid #ffffff55}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:28px 0 13px}.section-head h2{margin:0;font-size:19px;color:var(--deep)}.section-head span{font-size:12px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:white;border:1px solid var(--line);border-radius:19px;padding:18px;box-shadow:var(--shadow)}.stat-label{font-size:12px;color:var(--muted);font-weight:700}.stat-value{font-size:25px;font-weight:850;color:var(--deep);margin-top:8px}.stat-note{font-size:11px;color:var(--muted);margin-top:5px}
-.plan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.plan{background:white;border:1px solid var(--line);border-radius:19px;padding:18px}.plan h3{margin:0 0 7px;color:var(--deep)}.plan p{color:var(--muted);font-size:13px;line-height:1.5}.tag{display:inline-block;background:#eaf6ff;color:#1977bb;border-radius:8px;padding:5px 8px;font-size:11px;font-weight:800}
-.panel{background:white;border:1px solid var(--line);border-radius:19px;padding:20px;line-height:1.6}.panel p{color:var(--muted);font-size:14px}.codebox{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f0f8ff;border:1px dashed #9bcdf0;border-radius:12px;padding:12px;margin-top:12px;font-weight:800;color:var(--deep)}.copy{border:0;background:#2388d8;color:white;border-radius:9px;padding:9px 12px;font-weight:800}
-nav{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;justify-content:center;gap:4px;padding:9px 8px calc(9px + env(safe-area-inset-bottom));z-index:5}
-nav button{border:0;background:transparent;color:#7890a5;padding:8px 13px;border-radius:12px;font-size:12px;font-weight:750;min-width:66px}nav button.active{background:#e5f4ff;color:#1675bb}
-.view{display:none}.view.active{display:block}.notice{margin-top:18px;padding:13px 15px;background:#fff9e9;border:1px solid #f2e2b5;border-radius:13px;color:#765d20;font-size:12px;line-height:1.5}
-.activity{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}.activity:last-child{border:0}
-@media(max-width:700px){.grid,.plan-grid{grid-template-columns:1fr 1fr}.hero{padding:23px}.app{padding:17px 13px 95px}}
-@media(max-width:430px){.grid,.plan-grid{grid-template-columns:1fr}.pill{font-size:10px}.brand strong{font-size:17px}nav button{padding:8px 9px;min-width:58px}}
+:root {
+  --blue:#238bd5;
+  --light-blue:#eaf6ff;
+  --navy:#123c60;
+  --text:#1b3850;
+  --muted:#71879a;
+  --white:#ffffff;
+  --border:#e1edf5;
+  --shadow:0 10px 28px rgba(24,86,130,.09);
+}
+* {box-sizing:border-box;margin:0;padding:0}
+body {
+  background:#f3f8fd;
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+}
+button {font:inherit;cursor:pointer}
+.container {
+  max-width:1150px;
+  margin:auto;
+  padding:20px 16px 100px;
+}
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:22px;
+}
+.brand {display:flex;align-items:center;gap:10px}
+.logo {
+  width:45px;height:45px;
+  display:grid;place-items:center;
+  border-radius:15px;
+  background:linear-gradient(140deg,#5bc4f5,#1475bd);
+  color:white;font-size:25px;font-weight:bold;
+}
+.brand h2 {color:var(--navy);letter-spacing:2px;font-size:19px}
+.brand small {color:var(--muted);font-size:11px}
+.demo {
+  background:#e1f3ff;color:#1878b8;
+  padding:8px 12px;border-radius:30px;
+  font-size:10px;font-weight:bold;
+}
+.page {display:none}
+.page.active {display:block}
+.hero {
+  padding:28px;
+  color:white;
+  border-radius:25px;
+  background:linear-gradient(115deg,#124e7d,#218bd0 70%,#4bb8ed);
+  box-shadow:var(--shadow);
+}
+.hero small {letter-spacing:2px;color:#d9f2ff}
+.hero h1 {font-size:36px;line-height:1.15;margin:13px 0}
+.hero p {color:#e6f6ff;line-height:1.6;font-size:14px;max-width:550px}
+.actions {display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn {
+  border:0;border-radius:11px;
+  padding:12px 16px;font-weight:bold;
+  background:white;color:#176da9;
+}
+.btn.blue {background:var(--blue);color:white}
+.btn.ghost {background:#ffffff20;color:white;border:1px solid #ffffff70}
+.heading {
+  display:flex;justify-content:space-between;
+  align-items:center;margin:27px 0 13px;
+}
+.heading h3 {font-size:19px;color:var(--navy)}
+.heading span {font-size:11px;color:var(--muted)}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
+}
+.card {
+  background:white;border:1px solid var(--border);
+  border-radius:17px;padding:17px;
+  box-shadow:var(--shadow);
+}
+.label {font-size:11px;color:var(--muted);font-weight:bold}
+.value {font-size:25px;font-weight:bold;color:var(--navy);margin-top:9px}
+.note {font-size:10px;color:#91a2b1;margin-top:5px}
+.quick {
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:11px;
+}
+.quick button {
+  background:white;border:1px solid var(--border);
+  border-radius:15px;padding:15px 5px;
+  color:var(--navy);font-weight:bold;font-size:11px;
+}
+.quick i {display:block;font-style:normal;font-size:22px;margin-bottom:7px}
+.notice {
+  margin-top:17px;padding:13px;
+  border-radius:12px;background:#fff9e9;
+  border:1px solid #f0e2b8;
+  color:#755e28;font-size:11px;line-height:1.6;
+}
+.catalog {
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:13px;
+}
+.service {
+  background:white;border:1px solid var(--border);
+  border-radius:17px;padding:18px;
+  box-shadow:var(--shadow);
+}
+.symbol {
+  width:40px;height:40px;border-radius:13px;
+  background:var(--light-blue);
+  display:grid;place-items:center;font-size:21px;
+  margin-bottom:13px;
+}
+.service h3 {color:var(--navy);font-size:15px}
+.service p {color:var(--muted);font-size:12px;line-height:1.6;margin:10px 0}
+.tag {
+  display:inline-block;padding:5px 8px;
+  border-radius:8px;background:#e8f5ff;
+  color:#1878b8;font-size:10px;font-weight:bold;
+}
+.panel {
+  background:white;border:1px solid var(--border);
+  border-radius:18px;padding:20px;
+  box-shadow:var(--shadow);
+}
+.panel h3 {color:var(--navy)}
+.panel p {color:var(--muted);font-size:13px;line-height:1.6;margin-top:8px}
+.field {
+  display:flex;align-items:center;gap:8px;
+  padding:11px;margin-top:11px;
+  background:#f1f8fd;border:1px dashed #b7d9ef;
+  border-radius:11px;
+}
+.field code {flex:1;overflow-wrap:anywhere;color:var(--navy)}
+.copy {
+  border:0;border-radius:8px;
+  background:var(--blue);color:white;
+  padding:9px 11px;font-size:11px;font-weight:bold;
+}
+.listrow {
+  display:flex;justify-content:space-between;
+  gap:10px;padding:13px 0;
+  border-bottom:1px solid var(--border);
+  font-size:12px;
+}
+.listrow:last-child {border-bottom:0}
+.wallet-value {font-size:30px;color:var(--navy);font-weight:bold;margin:15px 0}
+.profile-head {display:flex;align-items:center;gap:13px;margin-bottom:15px}
+.avatar {
+  width:52px;height:52px;border-radius:17px;
+  background:#dff2ff;color:#1674b4;
+  display:grid;place-items:center;font-size:23px;
+}
+.admin-grid {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.admin-item {background:#f4faff;border:1px solid var(--border);padding:14px;border-radius:12px}
+.admin-item b {display:block;color:var(--navy);font-size:19px}
+.admin-item small {color:var(--muted)}
+nav {
+  position:fixed;bottom:0;left:0;right:0;
+  display:flex;justify-content:center;gap:3px;
+  padding:9px 5px calc(9px + env(safe-area-inset-bottom));
+  background:#ffffffed;backdrop-filter:blur(12px);
+  border-top:1px solid var(--border);z-index:5;
+}
+nav button {
+  border:0;background:transparent;
+  color:#8296a7;border-radius:12px;
+  padding:8px 12px;min-width:62px;
+  font-size:10px;font-weight:bold;
+}
+nav button.active {background:#e5f4ff;color:#1676b9}
+nav i {display:block;font-style:normal;font-size:17px;margin-bottom:3px}
+#toast {
+  position:fixed;bottom:85px;left:50%;
+  transform:translateX(-50%);
+  background:#153f60;color:white;
+  padding:11px 17px;border-radius:30px;
+  font-size:12px;display:none;z-index:10;
+}
+@media(max-width:700px) {
+  .container {padding:15px 12px 100px}
+  .grid {grid-template-columns:1fr 1fr}
+  .grid .card:last-child {grid-column:span 2}
+  .catalog {grid-template-columns:1fr 1fr}
+  .hero {padding:23px}
+  .hero h1 {font-size:31px}
+}
+@media(max-width:430px) {
+  .catalog {grid-template-columns:1fr}
+  nav button {min-width:0;flex:1;padding:8px 3px}
+  .quick button {font-size:9px}
+  .brand h2 {font-size:17px}
+}
 </style>
 </head>
+
 <body>
-<div class="app">
+<div class="container">
+
 <header>
-  <div class="brand"><div class="logo">A</div><div><strong>AUREVIA</strong><small>Grow with confidence</small></div></div>
-  <span class="pill">DEMO WEBSITE</span>
+  <div class="brand">
+    <div class="logo">A</div>
+    <div>
+      <h2>AUREVIA</h2>
+      <small>Grow With Confidence</small>
+    </div>
+  </div>
+  <span class="demo">DEMO PREVIEW</span>
 </header>
 
-<main>
-<section class="view active" id="home">
-  <div class="hero"><small>WELCOME TO AUREVIA</small><h1>Your goals.<br>One clear direction.</h1><p>Explore the AUREVIA demo dashboard, view sample services, and learn how a simple digital platform can organize your activity.</p><div class="actions"><button class="btn" onclick="showView('plans')">Explore services</button><button class="btn secondary" onclick="showView('profile')">My profile</button></div></div>
-  <div class="section-head"><h2>Overview</h2><span>Sample information</span></div>
+<!-- HOME -->
+<section class="page active" id="home">
+  <div class="hero">
+    <small>WELCOME TO AUREVIA</small>
+    <h1>Make Your Next<br>Step A Clear One.</h1>
+    <p>
+      A clean digital space to explore services,
+      organize your activity and manage your profile.
+    </p>
+    <div class="actions">
+      <button class="btn" onclick="go('plans')">Explore Services</button>
+      <button class="btn ghost" onclick="go('referral')">Invite Friends</button>
+    </div>
+  </div>
+
+  <div class="heading">
+    <h3>Dashboard Overview</h3>
+    <span>Sample information</span>
+  </div>
+
   <div class="grid">
-    <div class="card"><div class="stat-label">Demo points</div><div class="stat-value">1,250</div><div class="stat-note">Illustrative only</div></div>
-    <div class="card"><div class="stat-label">Available services</div><div class="stat-value">06</div><div class="stat-note">Sample catalogue</div></div>
-    <div class="card"><div class="stat-label">Account status</div><div class="stat-value" style="font-size:20px">Preview</div><div class="stat-note">No real account linked</div></div>
+    <div class="card">
+      <div class="label">Demo Points</div>
+      <div class="value">1,250</div>
+      <div class="note">Sample display only</div>
+    </div>
+    <div class="card">
+      <div class="label">Services</div>
+      <div class="value">06</div>
+      <div class="note">Sample catalogue</div>
+    </div>
+    <div class="card">
+      <div class="label">Account Status</div>
+      <div class="value" style="font-size:20px">Preview</div>
+      <div class="note">No live account connected</div>
+    </div>
   </div>
-  <div class="notice"><b>Demo notice:</b> This website is a front-end preview. Points, plans, and activity are sample content only. It does not accept deposits, process withdrawals, or promise earnings or investment returns.</div>
-</section>
 
-<section class="view" id="plans">
-  <div class="section-head"><h2>Plans & Services</h2><span>Sample catalogue</span></div>
-  <div class="plan-grid">
-    <article class="plan"><span class="tag">SERVICE 01</span><h3>Starter</h3><p>A simple introduction to the platform's sample features.</p></article>
-    <article class="plan"><span class="tag">SERVICE 02</span><h3>Explorer</h3><p>Explore more dashboard sections and sample tools.</p></article>
-    <article class="plan"><span class="tag">SERVICE 03</span><h3>Creator</h3><p>Organize ideas and keep track of demo activity.</p></article>
-    <article class="plan"><span class="tag">SERVICE 04</span><h3>Community</h3><p>View a sample community and referral interface.</p></article>
-    <article class="plan"><span class="tag">SERVICE 05</span><h3>Learning</h3><p>Discover basic guides and platform information.</p></article>
-    <article class="plan"><span class="tag">SERVICE 06</span><h3>Support</h3><p>Find help information for this website preview.</p></article>
+  <div class="heading">
+    <h3>Quick Access</h3>
+    <span>Choose a section</span>
   </div>
-  <div class="notice">These are demonstration service cards, not investment products or offers to earn money.</div>
+
+  <div class="quick">
+    <button onclick="go('plans')"><i>▦</i>Services</button>
+    <button onclick="go('referral')"><i>♧</i>Referral</button>
+    <button onclick="go('wallet')"><i>▣</i>Wallet</button>
+    <button onclick="go('profile')"><i>◎</i>Profile</button>
+  </div>
+
+  <div class="notice">
+    <b>Demo notice:</b> Points and records shown here are sample
+    content only. They are not cash, earnings, or investment
+    returns. No deposits, withdrawals, or payments are processed.
+  </div>
 </section>
 
-<section class="view" id="invite">
-  <div class="section-head"><h2>Invite Friends</h2><span>Demo feature</span></div>
-  <div class="panel"><h3>Share AUREVIA</h3><p>This sample referral area demonstrates how a sharing feature could look. No rewards or commissions are provided.</p><div class="codebox"><span id="refcode">AUREVIA-DEMO</span><button class="copy" onclick="copyText('AUREVIA-DEMO')">Copy</button></div><div class="codebox"><span style="font-size:12px;overflow-wrap:anywhere">https://example.com/join</span><button class="copy" onclick="copyText('https://example.com/join')">Copy</button></div></div>
+<!-- PLANS -->
+<section class="page" id="plans">
+  <div class="heading">
+    <h3>Plans & Services</h3>
+    <span>Sample catalogue</span>
+  </div>
+
+  <div class="catalog">
+    <article class="service">
+      <div class="symbol">✦</div>
+      <h3>Starter</h3>
+      <p>Explore basic tools and learn how the platform works.</p>
+      <span class="tag">SERVICE 01</span>
+    </article>
+
+    <article class="service">
+      <div class="symbol">◇</div>
+      <h3>Explorer</h3>
+      <p>Discover more sections and organize your activities.</p>
+      <span class="tag">SERVICE 02</span>
+    </article>
+
+    <article class="service">
+      <div class="symbol">▤</div>
+      <h3>Creator</h3>
+      <p>Keep your ideas and resources organized.</p>
+      <span class="tag">SERVICE 03</span>
+    </article>
+
+    <article class="service">
+      <div class="symbol">♧</div>
+      <h3>Community</h3>
+      <p>Explore the sample community interface.</p>
+      <span class="tag">SERVICE 04</span>
+    </article>
+
+    <article class="service">
+      <div class="symbol">⌘</div>
+      <h3>Learning</h3>
+      <p>Browse helpful guides and platform information.</p>
+      <span class="tag">SERVICE 05</span>
+    </article>
+
+    <article class="service">
+      <div class="symbol">☏</div>
+      <h3>Support</h3>
+      <p>Find help and support information.</p>
+      <span class="tag">SERVICE 06</span>
+    </article>
+  </div>
+
+  <div class="notice">
+    These are sample service categories, not paid investment
+    products or offers of guaranteed returns.
+  </div>
 </section>
 
-<section class="view" id="wallet">
-  <div class="section-head"><h2>Wallet Preview</h2><span>Not connected</span></div>
-  <div class="panel"><h3>Sample wallet</h3><div class="stat-value">1,250 pts</div><p>This is a display example only. No real money is stored or transferred here.</p></div>
-  <div class="notice">Deposit and withdrawal functions are intentionally not enabled in this demo.</div>
+<!-- REFERRAL -->
+<section class="page" id="referral">
+  <div class="heading">
+    <h3>Invite Friends</h3>
+    <span>Referral preview</span>
+  </div>
+
+  <div class="panel">
+    <h3>Share AUREVIA</h3>
+    <p>
+      This sample section demonstrates a referral interface.
+      Referral tracking and rewards are not active.
+    </p>
+
+    <div class="listrow">
+      <span>Your demo referral code</span>
+      <b>AUREVIA-DEMO</b>
+    </div>
+
+    <div class="field">
+      <code>AUREVIA-DEMO</code>
+      <button class="copy" onclick="copyText('AUREVIA-DEMO')">
+        Copy Code
+      </button>
+    </div>
+
+    <div class="field">
+      <code>https://example.com/join</code>
+      <button class="copy" onclick="copyText('https://example.com/join')">
+        Copy Link
+      </button>
+    </div>
+  </div>
+
+  <div class="heading">
+    <h3>Referral Overview</h3>
+    <span>Sample only</span>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="label">Invited Members</div>
+      <div class="value">0</div>
+    </div>
+    <div class="card">
+      <div class="label">Active Referrals</div>
+      <div class="value">0</div>
+    </div>
+    <div class="card">
+      <div class="label">Rewards</div>
+      <div class="value">—</div>
+    </div>
+  </div>
 </section>
 
-<section class="view" id="activity">
-  <div class="section-head"><h2>Activity</h2><span>Sample records</span></div>
-  <div class="panel"><div class="activity"><span>Demo account created</span><b>Sample</b></div><div class="activity"><span>Viewed services</span><b>Sample</b></div><div class="activity"><span>Referral page opened</span><b>Sample</b></div></div>
+<!-- WALLET -->
+<section class="page" id="wallet">
+  <div class="heading">
+    <h3>Wallet</h3>
+    <span>Not connected</span>
+  </div>
+
+  <div class="panel">
+    <span class="tag">DEMO WALLET</span>
+    <div class="wallet-value">1,250 Demo Points</div>
+    <p>
+      This is a sample display balance. It is not money or
+      withdrawable funds. No payment gateway is connected.
+    </p>
+
+    <div class="listrow">
+      <span>Deposit</span>
+      <b>Unavailable</b>
+    </div>
+    <div class="listrow">
+      <span>Withdrawal</span>
+      <b>Unavailable</b>
+    </div>
+    <div class="listrow">
+      <span>Payment Status</span>
+      <b>Not connected</b>
+    </div>
+  </div>
+
+  <div class="heading">
+    <h3>Transaction History</h3>
+    <span>Sample records</span>
+  </div>
+
+  <div class="panel">
+    <p>No real transactions are available in this preview.</p>
+  </div>
 </section>
 
-<section class="view" id="profile">
-  <div class="section-head"><h2>My Profile</h2><span>Preview account</span></div>
-  <div class="panel"><h3>Guest User</h3><p>Welcome to the AUREVIA preview. Account registration and personal information storage are not enabled yet.</p><div class="activity"><span>Username</span><b>Guest</b></div><div class="activity"><span>Account type</span><b>Demo</b></div><div class="activity"><span>Status</span><b>Preview</b></div></div>
+<!-- PROFILE / ADMIN -->
+<section class="page" id="profile">
+  <div class="heading">
+    <h3>My Account</h3>
+    <span>Profile preview</span>
+  </div>
+
+  <div class="panel">
+    <div class="profile-head">
+      <div class="avatar">G</div>
+      <div>
+        <h3>Guest User</h3>
+        <span style="font-size:11px;color:#71879a">
+          Preview Account
+        </span>
+      </div>
+    </div>
+
+    <div class="listrow">
+      <span>Username</span>
+      <b>Guest</b>
+    </div>
+    <div class="listrow">
+      <span>Account Type</span>
+      <b>Demo</b>
+    </div>
+    <div class="listrow">
+      <span>Account Status</span>
+      <b>Preview</b>
+    </div>
+
+    <p>
+      Registration, secure login and profile storage require
+      a backend connection.
+    </p>
+  </div>
+
+  <div class="heading">
+    <h3>Admin Dashboard</h3>
+    <span>Interface preview</span>
+  </div>
+
+  <div class="panel">
+    <div class="admin-grid">
+      <div class="admin-item">
+        <b>—</b>
+        <small>Total Users</small>
+      </div>
+      <div class="admin-item">
+        <b>—</b>
+        <small>Pending Requests</small>
+      </div>
+      <div class="admin-item">
+        <b>—</b>
+        <small>Support Tickets</small>
+      </div>
+      <div class="admin-item">
+        <b>—</b>
+        <small>System Status</small>
+      </div>
+    </div>
+    <p>
+      Admin management is not active. Secure admin login
+      and server-side permissions are required.
+    </p>
+  </div>
 </section>
-</main>
+
 </div>
 
-<nav aria-label="Main navigation">
-<button class="active" data-view="home" onclick="showView('home',this)">Home</button>
-<button data-view="plans" onclick="showView('plans',this)">Services</button>
-<button data-view="invite" onclick="showView('invite',this)">Invite</button>
-<button data-view="wallet" onclick="showView('wallet',this)">Wallet</button>
-<button data-view="activity" onclick="showView('activity',this)">Activity</button>
-<button data-view="profile" onclick="showView('profile',this)">Profile</button>
+<!-- BOTTOM NAVIGATION -->
+<nav>
+  <button class="active" data-page="home" onclick="go('home')">
+    <i>⌂</i>Home
+  </button>
+  <button data-page="plans" onclick="go('plans')">
+    <i>▦</i>Plans
+  </button>
+  <button data-page="referral" onclick="go('referral')">
+    <i>♧</i>Referral
+  </button>
+  <button data-page="wallet" onclick="go('wallet')">
+    <i>▣</i>Wallet
+  </button>
+  <button data-page="profile" onclick="go('profile')">
+    <i>◎</i>Profile
+  </button>
 </nav>
+
+<div id="toast">Copied!</div>
+
 <script>
-function showView(id,button){
-  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));
-  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));
-  if(button) button.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+function go(page) {
+  document.querySelectorAll(".page").forEach(function(section) {
+    section.classList.toggle("active", section.id === page);
+  });
+
+  document.querySelectorAll("nav button").forEach(function(button) {
+    button.classList.toggle("active", button.dataset.page === page);
+  });
+
+  window.scrollTo({top:0, behavior:"smooth"});
 }
-function copyText(value){
-  if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(value).then(()=>alert('Copied!')).catch(()=>alert('Copy failed. Please copy it manually.'));
-  }else{
-    const area=document.createElement('textarea');area.value=value;document.body.appendChild(area);area.select();
-    try{document.execCommand('copy');alert('Copied!')}catch(e){alert('Copy failed. Please copy it manually.')}
-    area.remove();
+
+function copyText(value) {
+  function showToast() {
+    const toast = document.getElementById("toast");
+    toast.style.display = "block";
+    setTimeout(function() {
+      toast.style.display = "none";
+    }, 1800);
   }
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(value)
+      .then(showToast)
+      .catch(function() {
+        fallbackCopy(value, showToast);
+      });
+  } else {
+    fallbackCopy(value, showToast);
+  }
+}
+
+function fallbackCopy(value, callback) {
+  const area = document.createElement("textarea");
+  area.value = value;
+  document.body.appendChild(area);
+  area.select();
+
+  try {
+    document.execCommand("copy");
+    callback();
+  } catch(error) {
+    alert("Please copy manually: " + value);
+  }
+
+  area.remove();
 }
 </script>
 </body>
