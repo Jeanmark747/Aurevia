@@ -4,275 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#eee9d9">
-<title>AUREVIA | Premium Experience</title>
+<title>AUREVIA INVESTMENT | Sign Up</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--gold:#c6a94e;--dark:#171817;--cream:#f0eddf;--muted:#88877f;--white:#fff}
-body{font-family:Arial,Helvetica,sans-serif;background:#e9e6da;color:#191a18}
-button,input{font:inherit}
-button{cursor:pointer;border:0}
-.hidden{display:none!important}
-.app{max-width:520px;min-height:100vh;margin:auto;background:var(--cream);padding-bottom:83px}
-.top{height:61px;background:#f8f6ec;display:flex;align-items:center;justify-content:space-between;padding:0 16px;position:sticky;top:0;z-index:10;border-bottom:1px solid #e5dfca}
-.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px}
-.logo{width:37px;height:37px;border-radius:11px;background:linear-gradient(145deg,#e2c86e,#9d7a25);display:grid;place-items:center;color:#171817;font-weight:900;font-size:21px;border:1px solid #f5df91}
-.lang{background:white;border-radius:30px;padding:9px 13px;font-size:12px;color:#333}
-main{padding:15px}
-.announcement{background:#191a18;color:#d9c16f;padding:12px 14px;border-radius:30px;font-size:11px;margin-bottom:14px;white-space:nowrap;overflow:hidden}
-.hero{height:175px;border-radius:18px;background:linear-gradient(110deg,#24231e,#64532e 65%,#d0b66b);padding:21px;color:white;position:relative;overflow:hidden;margin-bottom:17px}
-.hero:after{content:"A";position:absolute;right:12px;top:8px;font-size:150px;font-weight:900;color:#ffffff17}
-.hero small{font-size:10px;letter-spacing:2px;color:#e9d58d}
-.hero h2{font-size:24px;max-width:245px;line-height:1.15;margin:13px 0 7px}
-.hero p{font-size:11px;color:#e8e1cf;max-width:230px;line-height:1.5}
-.hero .tag{display:inline-block;margin-top:12px;background:#ffffff20;padding:7px 11px;border-radius:20px;font-size:10px}
-.shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:17px}
-.shortcut{text-align:center;background:transparent;color:#222}
-.shortcut i{font-style:normal;width:51px;height:51px;border-radius:17px;background:#191a18;color:#d8bd68;display:grid;place-items:center;font-size:21px;margin:0 auto 7px}
-.shortcut span{font-size:11px}
-.balance{background:linear-gradient(120deg,#171817,#34352e);border-radius:21px;padding:18px;color:white;box-shadow:0 7px 16px #17181722}
-.balance small{font-size:11px;color:#bcb9a9}
-.balance h2{font-size:29px;margin:8px 0;color:#e6cf83}
-.balance .sub{font-size:10px;color:#bcb9a9}
-.section-title{font-size:15px;font-weight:800;margin:21px 0 12px}
-.services{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.service{background:#191a18;color:white;border-radius:20px;padding:15px;min-height:112px;text-align:left}
-.service .ico{width:36px;height:36px;background:#34352f;border-radius:12px;display:grid;place-items:center;color:#d9c16f;font-size:18px;margin-bottom:10px}
-.service strong{font-size:13px}
-.service p{font-size:10px;color:#aaa99e;line-height:1.5;margin-top:7px}
-.white-card{background:#fff;border-radius:19px;padding:16px;margin-top:13px}
-.white-card h3{font-size:14px;margin-bottom:8px}
-.white-card p{font-size:12px;color:#77766e;line-height:1.6}
-.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.gold-text{color:#a78a35}
-.page-title{font-size:23px;margin:8px 0}
-.page-desc{font-size:12px;color:#77766e;line-height:1.6;margin-bottom:17px}
-.item{background:white;border-radius:17px;padding:17px;margin-bottom:11px}
-.item h3{font-size:14px;margin-bottom:7px}
-.item p{font-size:11px;color:#77766e;line-height:1.6}
-.item button{background:#191a18;color:#e2ca79;border-radius:10px;padding:10px 14px;font-size:11px;margin-top:12px}
-.copy{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#f4f0e3;padding:12px;border-radius:12px;margin-top:12px}
-.copy strong{font-size:12px;overflow-wrap:anywhere}
-.copy button{background:#191a18;color:#e2ca79;padding:9px 12px;border-radius:9px;font-size:10px}
-.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:70px;background:#fffdf6;border-top:1px solid #e5dfca;display:grid;grid-template-columns:repeat(4,1fr);z-index:20}
-.nav{background:none;color:#929087;font-size:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
-.nav b{font-size:21px;font-weight:normal}
-.nav.active{color:#a48732}
-.auth{min-height:100vh;padding:35px 19px;background:linear-gradient(145deg,#e9e4d2,#f8f6ee)}
-.auth-brand{text-align:center;margin-bottom:24px}
-.auth-brand .logo{width:76px;height:76px;border-radius:22px;font-size:39px;margin:0 auto 12px}
-.auth-brand h2{font-size:23px}
-.auth-brand p{font-size:11px;color:#888;margin-top:5px;letter-spacing:1px}
-.auth-card{background:#fff;border-radius:25px;padding:25px 20px;border-top:5px solid var(--gold);box-shadow:0 12px 30px #30271412}
-.auth-card h1{font-size:30px;margin-bottom:12px}
-.auth-card .sub{font-size:13px;color:#888;margin-bottom:23px}
-.auth-card .sub a{color:#9d812d;font-weight:bold;cursor:pointer}
-.field{margin-bottom:15px}
-.field input{height:57px;width:100%;border:1px solid #e0ded7;border-radius:16px;padding:0 17px;font-size:14px;outline:none;background:white}
-.field input:focus{border-color:#c3a64d}
-.terms{display:flex;align-items:flex-start;gap:9px;font-size:11px;color:#888;line-height:1.6;margin:17px 0}
-.terms input{accent-color:#b99b40;margin-top:3px}
-.gold-btn{height:56px;width:100%;border-radius:15px;background:linear-gradient(100deg,#e0c66d,#b49335);color:#211d10;font-weight:800;font-size:16px}
-.home-btn{height:53px;width:100%;border-radius:15px;background:#f7f5ed;border:1px solid #e2dfd3;margin-top:12px;color:#444;font-weight:bold}
-.auth-note{text-align:center;color:#999;font-size:10px;line-height:1.6;margin-top:16px}
-.toast{position:fixed;bottom:86px;left:50%;transform:translateX(-50%);background:#171817;color:white;padding:12px 17px;border-radius:25px;font-size:12px;z-index:50;display:none;max-width:90%;text-align:center}
-@media(min-width:521px){body{padding:15px 0}.app{border-radius:20px;overflow:hidden}.bottom{bottom:15px;border-radius:0 0 20px 20px}}
+:root{--gold:#c6a94e;--dark:#191a18;--cream:#eeeadd;--muted:#929087}
+body{font-family:Arial,Helvetica,sans-serif;background:#eeeadd;color:#191a18}
+button,input{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}
+.app{width:100%;max-width:520px;min-height:100vh;margin:auto;background:linear-gradient(145deg,#eeeadd,#f8f6ed);padding-bottom:24px}
+.language{position:absolute;right:20px;top:20px;border-radius:28px;background:#fff;padding:13px 20px;font-size:13px;font-weight:600}
+.brand{text-align:center;padding:83px 20px 23px}
+.logo{width:88px;height:88px;border-radius:24px;margin:0 auto 15px;display:grid;place-items:center;color:#171817;font-weight:900;font-size:40px;background:linear-gradient(145deg,#f2dc8b 0%,#bd9838 48%,#352817 100%);border:5px solid #d6d0bd;box-shadow:0 7px 16px #29231426,inset 0 0 0 2px #f5df91}
+.brand h2{font-size:25px;font-weight:800;letter-spacing:-.7px}.brand p{font-size:10px;letter-spacing:2px;color:#8b8060;margin-top:6px}
+.auth-card{background:#fff;border-radius:25px;border-top:5px solid #c9ad53;margin:0 20px;padding:34px 24px 27px;box-shadow:0 12px 30px #30271410}
+.auth-card h1{font-size:32px;letter-spacing:-1.4px;margin-bottom:29px}
+.sub{font-size:14px;color:#929087;margin-top:-3px;margin-bottom:28px}.sub a{color:#9d812d;text-decoration:underline;text-underline-offset:3px;font-weight:700;cursor:pointer}
+.tabs{height:68px;background:#eae7dc;border-radius:40px;padding:6px;display:grid;grid-template-columns:1fr 1fr;margin-bottom:57px}
+.tabs button{border-radius:36px;background:transparent;color:#89877f;font-weight:700;font-size:15px}
+.tabs button.active{background:#191a18;color:#fff;box-shadow:0 7px 17px #191a1820}
+.field{margin-bottom:27px}
+.field input{height:65px;width:100%;border:1px solid #deddd7;border-radius:24px;padding:0 23px;font-size:16px;outline:none;background:#fff;color:#191a18;box-shadow:0 3px 9px #1a1a1a05}
+.field input::placeholder{color:#aaa9a3}.field input:focus{border-color:#c3a64d}
+.phone-wrap{display:flex;align-items:center;height:65px;border:1px solid #deddd7;border-radius:24px;padding:0 22px;box-shadow:0 3px 9px #1a1a1a05}
+.phone-wrap select{border:0;background:transparent;font-size:16px;outline:none;max-width:85px;color:#191a18}
+.phone-wrap input{border:0!important;box-shadow:none!important;height:60px!important;padding-left:13px!important;min-width:0}
+.password-wrap{position:relative}.password-wrap input{padding-right:55px}
+.eye{position:absolute;right:21px;top:50%;transform:translateY(-50%);background:none;color:#191a18;font-size:19px}
+.referral{margin-bottom:25px}
+.terms{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:#929087;line-height:1.5;margin:3px 0 25px 48px}
+.terms input{width:19px;height:19px;accent-color:#b99b40;flex:0 0 auto;margin-top:1px}
+.terms a{color:#b39a49;text-decoration:none}
+.gold-btn{height:74px;width:100%;border-radius:23px;background:linear-gradient(100deg,#e3c96f,#b89638);color:#241f11;font-weight:800;font-size:19px;box-shadow:0 7px 16px #ad91382b}
+.home-btn{height:66px;width:100%;border-radius:23px;background:#f7f5ed;border:1px solid #e2dfd3;margin-top:17px;color:#444;font-weight:700;font-size:18px}
+.note{text-align:center;color:#999;font-size:10px;line-height:1.6;margin-top:17px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#171817;color:white;padding:12px 17px;border-radius:25px;font-size:12px;z-index:50;display:none;max-width:90%;text-align:center}
+@media(max-width:390px){.auth-card{margin:0 14px;padding:29px 18px 23px}.brand{padding-top:78px}.tabs{margin-bottom:42px}.terms{margin-left:8px}}
 </style>
 </head>
 <body>
 <div class="app">
-
-<section class="auth" id="register">
- <div class="auth-brand">
+ <button class="language" type="button">◎ English</button>
+ <header class="brand">
   <div class="logo">A</div>
-  <h2>AUREVIA</h2><p>GROW YOUR FUTURE</p>
- </div>
- <div class="auth-card">
+  <h2>AUREVIA INVESTMENT</h2>
+  <p>GROW YOUR FUTURE</p>
+ </header>
+
+ <section class="auth-card" id="register">
   <h1>Sign Up</h1>
   <p class="sub">Already have an account? <a onclick="showAuth('login')">Log In</a></p>
+  <div class="tabs">
+   <button type="button" id="emailTab" class="active" onclick="setMode('email')">Email Sign Up</button>
+   <button type="button" id="phoneTab" onclick="setMode('phone')">Phone Sign Up</button>
+  </div>
   <form id="registerForm">
-   <div class="field"><input id="regEmail" type="email" placeholder="Email" required></div>
-   <div class="field"><input id="regPassword" type="password" placeholder="Password (minimum 8 characters)" minlength="8" required></div>
-   <div class="field"><input id="regConfirm" type="password" placeholder="Confirm Password" required></div>
-   <div class="field"><input id="regInvite" type="text" placeholder="Invitation Code (optional)"></div>
-   <label class="terms"><input type="checkbox" id="agree" required><span>I agree to the Terms of Use and Privacy Policy.</span></label>
-   <button class="gold-btn" type="submit">Sign Up</button>
+   <div class="field" id="emailField"><input id="regEmail" type="email" placeholder="Email" autocomplete="email"></div>
+   <div class="field hidden" id="phoneField">
+    <div class="phone-wrap">
+     <select id="dialCode" aria-label="Country code"><option value="+63">🇵🇭 +63</option><option value="+1">🇺🇸 +1</option><option value="+44">🇬🇧 +44</option><option value="+65">🇸🇬 +65</option></select>
+     <input id="regPhone" type="tel" placeholder="Phone" autocomplete="tel">
+    </div>
+   </div>
+   <div class="field password-wrap"><input id="regPassword" type="password" placeholder="Password" minlength="8" required><button class="eye" type="button" onclick="togglePassword('regPassword',this)" aria-label="Show password">◎</button></div>
+   <div class="field password-wrap"><input id="securityPassword" type="password" placeholder="Security Password" required><button class="eye" type="button" onclick="togglePassword('securityPassword',this)" aria-label="Show security password">◎</button></div>
+   <div class="field referral"><input id="regInvite" type="text" value="668899" placeholder="Invitation Code"></div>
+   <label class="terms"><input type="checkbox" id="agree" required><span>I agree to the <a href="#" onclick="return false">Terms of Use</a> and <a href="#" onclick="return false">Privacy Policy</a></span></label>
+   <button class="gold-btn" id="signupBtn" type="submit">Sign Up</button>
   </form>
-  <button class="home-btn" onclick="showAuth('login')">Log In</button>
-  <p class="auth-note">AUREVIA account registration. Email confirmation may be required before login.</p>
- </div>
-</section>
+  <button class="home-btn" type="button" onclick="showAuth('login')">⌂ &nbsp; Go Home</button>
+  <p class="note">AUREVIA account registration. Email or phone confirmation may be required.</p>
+ </section>
 
-<section class="auth hidden" id="login">
- <div class="auth-brand"><div class="logo">A</div><h2>AUREVIA</h2><p>WELCOME BACK</p></div>
- <div class="auth-card">
+ <section class="auth-card hidden" id="login">
   <h1>Log In</h1>
   <p class="sub">Don't have an account? <a onclick="showAuth('register')">Sign Up</a></p>
   <form id="loginForm">
-   <div class="field"><input id="loginEmail" type="email" placeholder="Email" required></div>
-   <div class="field"><input id="loginPassword" type="password" placeholder="Password" required></div>
+   <div class="field"><input id="loginEmail" type="email" placeholder="Email" autocomplete="username" required></div>
+   <div class="field password-wrap"><input id="loginPassword" type="password" placeholder="Password" required><button class="eye" type="button" onclick="togglePassword('loginPassword',this)">◎</button></div>
    <button class="gold-btn" type="submit">Log In</button>
   </form>
-  <button class="home-btn" onclick="showAuth('register')">Create Account</button>
-  <p class="auth-note">Use the email and password you registered with.</p>
- </div>
-</section>
-
-<div id="main" class="hidden">
- <header class="top">
-  <div class="brand"><div class="logo">A</div>AUREVIA</div>
-  <button class="lang">◎ English</button>
- </header>
- <main>
-  <section class="screen" id="home">
-   <div class="announcement">✦ &nbsp; Welcome to AUREVIA — Discover our platform and services</div>
-   <div class="hero"><small>AUREVIA EXPERIENCE</small><h2>Discover New Opportunities</h2><p>Explore services, resources and community updates.</p><span class="tag">Welcome to AUREVIA</span></div>
-   <div class="shortcuts">
-    <button class="shortcut" onclick="page('services')"><i>▣</i><span>Services</span></button>
-    <button class="shortcut" onclick="page('plans')"><i>↗</i><span>Programs</span></button>
-    <button class="shortcut" onclick="page('invite')"><i>♧</i><span>Invite</span></button>
-    <button class="shortcut" onclick="page('profile')"><i>♙</i><span>Profile</span></button>
-   </div>
-   <div class="balance"><small>ACCOUNT · MEMBER</small><h2 id="hello">Welcome!</h2><span class="sub">AUREVIA MEMBER ACCOUNT</span></div>
-   <h3 class="section-title">App Services</h3>
-   <div class="services">
-    <button class="service" onclick="page('activity')"><div class="ico">▤</div><strong>Activity</strong><p>View account updates and activity.</p></button>
-    <button class="service" onclick="page('invite')"><div class="ico">♧</div><strong>Invite Friends</strong><p>Share AUREVIA with your friends.</p></button>
-    <button class="service" onclick="page('services')"><div class="ico">◇</div><strong>Explore</strong><p>Discover available services.</p></button>
-    <button class="service" onclick="page('about')"><div class="ico">ⓘ</div><strong>About Us</strong><p>Learn more about AUREVIA.</p></button>
-   </div>
-   <h3 class="section-title">Platform Updates</h3>
-   <div class="white-card"><div class="row"><b style="font-size:13px">Welcome to AUREVIA</b><span class="gold-text" style="font-size:11px">NEW</span></div><p style="margin-top:8px">Your AUREVIA account is ready. Explore the platform and its available features.</p></div>
-  </section>
-
-  <section class="screen hidden" id="plans">
-   <h2 class="page-title">Programs</h2><p class="page-desc">Discover the programs and resources available on AUREVIA.</p>
-   <div class="item"><h3>Starter Program</h3><p>Introduction to AUREVIA and its features.</p><button onclick="notify('Program information coming soon')">View Details</button></div>
-   <div class="item"><h3>Explorer Program</h3><p>Explore resources and platform activities.</p><button onclick="notify('Program information coming soon')">View Details</button></div>
-   <div class="item"><h3>Community Program</h3><p>Discover community activities and updates.</p><button onclick="notify('Program information coming soon')">View Details</button></div>
-  </section>
-
-  <section class="screen hidden" id="services">
-   <h2 class="page-title">App Services</h2><p class="page-desc">Explore AUREVIA's available services.</p>
-   <div class="item"><h3>📚 Learning Resources</h3><p>Helpful educational materials and information.</p></div>
-   <div class="item"><h3>🌐 Community</h3><p>Community updates and activities.</p></div>
-   <div class="item"><h3>🎧 Customer Support</h3><p>Help with your account and platform questions.</p></div>
-   <div class="item"><h3>📢 Announcements</h3><p>Important platform information.</p></div>
-  </section>
-
-  <section class="screen hidden" id="invite">
-   <h2 class="page-title">Invite Friends</h2><p class="page-desc">Share AUREVIA with your friends.</p>
-   <div class="white-card"><h3>Your invitation code</h3><div class="copy"><strong id="inviteCode">AUREVIA</strong><button onclick="copyCode()">COPY</button></div><p style="margin-top:10px">Referral tracking will be available after a secure referral database is configured.</p></div>
-  </section>
-
-  <section class="screen hidden" id="activity">
-   <h2 class="page-title">Activity</h2><p class="page-desc">Your account activity.</p>
-   <div class="white-card"><p style="text-align:center;padding:24px 0">No activity available yet.</p></div>
-  </section>
-
-  <section class="screen hidden" id="profile">
-   <h2 class="page-title">My Account</h2>
-   <div class="white-card"><div class="row"><div><h3 id="profileEmail">Member</h3><p>Verified account status is managed by Supabase.</p></div><div class="logo">A</div></div></div>
-   <div class="item"><h3>Account Information</h3><p id="profileStatus">Signed in</p></div>
-   <div class="item"><h3>Security</h3><p>Your account is protected by Supabase Authentication.</p></div>
-   <button class="gold-btn" style="margin-top:12px" onclick="logout()">Log Out</button>
-  </section>
-
-  <section class="screen hidden" id="about">
-   <h2 class="page-title">About AUREVIA</h2>
-   <div class="white-card"><h3>AUREVIA</h3><p>AUREVIA is a platform for exploring services, resources and community features. This version does not provide investment, trading, deposit, withdrawal or financial-return services.</p></div>
-  </section>
- </main>
- <nav class="bottom">
-  <button class="nav active" data-page="home" onclick="page('home')"><b>⌂</b>Home</button>
-  <button class="nav" data-page="plans" onclick="page('plans')"><b>▤</b>Programs</button>
-  <button class="nav" data-page="invite" onclick="page('invite')"><b>♧</b>Invite</button>
-  <button class="nav" data-page="profile" onclick="page('profile')"><b>♙</b>Me</button>
- </nav>
+  <button class="home-btn" type="button" onclick="showAuth('register')">Create Account</button>
+ </section>
+ <div class="toast" id="toast"></div>
 </div>
-<div class="toast" id="toast"></div>
-</div>
-
 <script>
 const SUPABASE_URL="https://spanzvcucstpcgkebxuc.supabase.co";
 const SUPABASE_KEY="sb_publishable_RovQnw326KhwDM-ytox-XA_XccbGGwr";
 const client=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-
-function showAuth(which){
- document.getElementById('register').classList.toggle('hidden',which!=='register');
- document.getElementById('login').classList.toggle('hidden',which!=='login');
- document.getElementById('main').classList.add('hidden');
- window.scrollTo(0,0);
-}
-function notify(msg){
- const el=document.getElementById('toast');
- el.textContent=msg;el.style.display='block';
- clearTimeout(window.toastTimer);
- window.toastTimer=setTimeout(()=>el.style.display='none',3000);
-}
-function showApp(user){
- document.getElementById('register').classList.add('hidden');
- document.getElementById('login').classList.add('hidden');
- document.getElementById('main').classList.remove('hidden');
- const email=user.email||'Member';
- document.getElementById('hello').textContent='Hello, '+email.split('@')[0];
- document.getElementById('profileEmail').textContent=email;
- document.getElementById('inviteCode').textContent='AUR-'+user.id.slice(0,8).toUpperCase();
- page('home');
-}
-function page(name){
- document.querySelectorAll('.screen').forEach(x=>x.classList.add('hidden'));
- document.getElementById(name).classList.remove('hidden');
- document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===name));
- window.scrollTo(0,0);
-}
-document.getElementById('registerForm').addEventListener('submit',async e=>{
+let signupMode="email";
+function notify(msg){const el=document.getElementById("toast");el.textContent=msg;el.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.style.display="none",3500)}
+function showAuth(which){document.getElementById("register").classList.toggle("hidden",which!=="register");document.getElementById("login").classList.toggle("hidden",which!=="login");window.scrollTo(0,0)}
+function setMode(mode){signupMode=mode;document.getElementById("emailTab").classList.toggle("active",mode==="email");document.getElementById("phoneTab").classList.toggle("active",mode==="phone");document.getElementById("emailField").classList.toggle("hidden",mode!=="email");document.getElementById("phoneField").classList.toggle("hidden",mode!=="phone");document.getElementById("regEmail").required=mode==="email";document.getElementById("regPhone").required=mode==="phone"}
+function togglePassword(id,button){const input=document.getElementById(id);input.type=input.type==="password"?"text":"password";button.textContent=input.type==="password"?"◎":"◉"}
+document.getElementById("registerForm").addEventListener("submit",async e=>{
  e.preventDefault();
- const email=document.getElementById('regEmail').value.trim();
- const password=document.getElementById('regPassword').value;
- const confirm=document.getElementById('regConfirm').value;
- const invite=document.getElementById('regInvite').value.trim();
- if(password!==confirm){notify('Passwords do not match.');return}
- if(password.length<8){notify('Password must be at least 8 characters.');return}
- if(!document.getElementById('agree').checked){notify('Please accept the terms.');return}
- const btn=e.submitter;btn.disabled=true;btn.textContent='Creating account...';
- const {data,error}=await client.auth.signUp({
-  email,password,
-  options:{data:{invitation_code:invite}}
- });
- btn.disabled=false;btn.textContent='Sign Up';
- if(error){notify(error.message);return}
- if(data.session){showApp(data.user)}
- else{notify('Registration successful! Check your email to confirm your account.');showAuth('login');document.getElementById('loginEmail').value=email}
+ const password=document.getElementById("regPassword").value;
+ const securityPassword=document.getElementById("securityPassword").value;
+ if(password.length<8){notify("Password must be at least 8 characters.");return}
+ if(securityPassword.length<4){notify("Security Password must be at least 4 characters.");return}
+ if(!document.getElementById("agree").checked){notify("Please accept the Terms of Use and Privacy Policy.");return}
+ const btn=document.getElementById("signupBtn");btn.disabled=true;btn.textContent="Creating account...";
+ let result;
+ if(signupMode==="email"){
+  const email=document.getElementById("regEmail").value.trim();
+  result=await client.auth.signUp({email,password,options:{data:{invitation_code:document.getElementById("regInvite").value.trim()}}});
+ }else{
+  const phone=document.getElementById("dialCode").value+document.getElementById("regPhone").value.replace(/^0+/,"").replace(/\s+/g,"");
+  result=await client.auth.signUp({phone,password,options:{data:{invitation_code:document.getElementById("regInvite").value.trim()}}});
+ }
+ btn.disabled=false;btn.textContent="Sign Up";
+ if(result.error){notify(result.error.message);return}
+ if(result.data.session){notify("Account created successfully.")}
+ else{notify("Registration submitted. Check your email or phone for confirmation.");showAuth("login")}
 });
-document.getElementById('loginForm').addEventListener('submit',async e=>{
- e.preventDefault();
- const email=document.getElementById('loginEmail').value.trim();
- const password=document.getElementById('loginPassword').value;
- const btn=e.submitter;btn.disabled=true;btn.textContent='Logging in...';
- const {data,error}=await client.auth.signInWithPassword({email,password});
- btn.disabled=false;btn.textContent='Log In';
- if(error){notify(error.message);return}
- showApp(data.user);
+document.getElementById("loginForm").addEventListener("submit",async e=>{
+ e.preventDefault();const btn=e.submitter;btn.disabled=true;btn.textContent="Logging in...";
+ const {data,error}=await client.auth.signInWithPassword({email:document.getElementById("loginEmail").value.trim(),password:document.getElementById("loginPassword").value});
+ btn.disabled=false;btn.textContent="Log In";if(error){notify(error.message);return}notify("Welcome back, "+(data.user.email||"member"));
 });
-async function logout(){
- const {error}=await client.auth.signOut();
- if(error){notify(error.message);return}
- showAuth('login');notify('You have logged out.');
-}
-async function copyCode(){
- const code=document.getElementById('inviteCode').textContent;
- try{await navigator.clipboard.writeText(code);notify('Invitation code copied!')}
- catch(e){notify('Please copy: '+code)}
-}
-client.auth.onAuthStateChange((event,session)=>{
- if(session?.user)showApp(session.user);
- else if(event==='SIGNED_OUT')showAuth('login');
-});
-(async()=>{
- const {data:{session}}=await client.auth.getSession();
- if(session?.user)showApp(session.user);
-})();
+client.auth.getSession().then(({data})=>{if(data.session)notify("You are already signed in.")});
 </script>
 </body>
 </html>
